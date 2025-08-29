@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // 👈 navigation hook
-import mainBgUrl from "/images/background.webp";
+import mainBgUrl from "/images/bg.png";
 import buttonBgUrl from "/images/bg button.webp";
 
 const Latters = () => {
