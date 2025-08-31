@@ -1,11 +1,13 @@
 import React from "react";
-import poster from "/images/poster.png";
+import poster from "/images/poster.webp";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
+  const navigate = useNavigate();
+
   return (
-    // container is full width and lets its children define height responsively
     <div className="relative w-full overflow-hidden">
-      {/* Video Section: use responsive heights */}
+      {/* Video Section */}
       <div className="w-full h-48 sm:h-56 md:h-[389.61px] z-10">
         <video
           className="w-full h-full object-cover"
@@ -16,13 +18,13 @@ const Homepage = () => {
         />
       </div>
 
-      {/* Poster Section: placed after video and pulled up with negative margin to overlap */}
+      {/* Poster Section */}
       <div className="w-full -mt-12 sm:-mt-16 md:-mt-28 flex justify-center items-start z-20">
-        {/* constrain poster width so it looks good on large screens but fills small screens */}
         <img
           src={poster}
           alt="Poster"
-          className="w-full object-cover"
+          onClick={() => navigate("/about")} // ✅ yahan "/about" rakha hai
+          className="w-full object-cover cursor-pointer hover:opacity-90 transition"
         />
       </div>
     </div>

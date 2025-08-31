@@ -4,7 +4,7 @@ function Aboutus() {
   return (
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center px-6 py-10"
-      style={{ backgroundImage: "url('/images/background.webp')" }}
+      style={{ backgroundImage: "url('/images/bg.webp')" }}
     >
       <div className="max-w-3xl text-center space-y-8 text-gray-800">
         {/* Top Paragraph */}

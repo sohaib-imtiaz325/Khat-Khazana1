@@ -3,22 +3,22 @@ import { FiSearch } from "react-icons/fi"
 import { Link } from "react-router-dom";
 
 const cards = [
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (1).png" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (2).png" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (3).png" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (4).png" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (5).png" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (6).png" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552.png" },
-  { img: "/images/Card.webp", overlay: "/images/image 5 (1).png" },
-  { img: "/images/Card.webp", overlay: "/images/image 5.png" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (1).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (2).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (3).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (4).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (5).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (6).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552.webp" },
+  { img: "/images/Card.webp", overlay: "/images/image 5 (1).webp" },
+  { img: "/images/Card.webp", overlay: "/images/image 5.webp" },
 ];
 
 function Englishletter() {
   return (
     <div
       className="min-h-screen bg-cover bg-center flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundImage: "url('/remove background (2) 1.png')" }}
+      style={{ backgroundImage: "url('/images/bg.webp')" }}
     >
       {/* Heading */}
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center">

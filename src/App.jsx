@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ContactUs from "./components/ContactUs";
@@ -10,6 +10,9 @@ import Englishletter from "./components/Englishletter";
 import Urduletter from "./components/Urduletter";
 import Punjabiletter from "./components/Punjabiletter";
 import LattersDetailpage from "./components/LattersDetailpage";
+import PhotoGraph from "./components/PhotoGraph";
+import SubmissionForm from "./components/SubmissionForm";
+import Featurelatter from "./components/Featurelatter";
 
 // Simple placeholders – replace with your real pages
 const Page = ({ title }) => (
@@ -19,38 +22,50 @@ const Page = ({ title }) => (
   </div>
 );
 
+const Layout = () => {
+  const location = useLocation();
+
+  return (
+    <>
+      {/* ✅ Navbar sirf homepage "/" pe hide hoga */}
+      {location.pathname !== "/" && <Navbar />}
+
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<Aboutus />} />
+
+        {/* Main Letters page */}
+        <Route path="/letters" element={<Latters />} />
+
+        {/* Sub routes with details */}
+        <Route path="/letters/english" element={<Englishletter />} />
+        <Route path="/letters/english/:id" element={<LattersDetailpage />} />
+
+        <Route path="/letters/urdu" element={<Urduletter />} />
+        <Route path="/letters/urdu/:id" element={<LattersDetailpage />} />
+
+        <Route path="/letters/punjabi" element={<Punjabiletter />} />
+        <Route path="/letters/punjabi/:id" element={<LattersDetailpage />} />
+
+        <Route path="/photographs" element={<PhotoGraph title="Photographs" />} />
+        <Route
+          path="/featured"
+          element={<Featurelatter title="Featured letters & Photographs" />}
+        />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/submission" element={<SubmissionForm title="Submission" />} />
+        <Route path="/shop" element={<Page title="Shop" />} />
+      </Routes>
+
+      <Footer />
+    </>
+  );
+};
+
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage title="Homepage" />} />
-        <Route path="/about" element={<Aboutus title="About Us" />} />
-        {/* Main Letters page */}
-        <Route path="/letters" element={<Latters title="Letters" />} />
-
-       {/* Sub routes with details */}
-<Route path="/letters/english" element={<Englishletter title="Englishletter" />} />
-<Route path="/letters/english/:id" element={<LattersDetailpage title="LattersDetailpage" />} />
-
-<Route path="/letters/urdu" element={<Urduletter title="Urduletter" />} />
-<Route path="/letters/urdu/:id" element={<LattersDetailpage title="LattersDetailpage" />} />
-
-<Route path="/letters/punjabi" element={<Punjabiletter title="Punjabiletter" />} />
-<Route path="/letters/punjabi/:id" element={<LattersDetailpage title="LattersDetailpage" />} />
-
-
-
-        <Route path="/photographs" element={<Page title="Photographs" />} />
-        <Route
-          path="/featured"
-          element={<Page title="Featured letters & Photographs" />}
-        />
-        <Route path="/contact" element={<ContactUs title="ContactUs" />} />
-        <Route path="/submission" element={<Page title="Submission" />} />
-        <Route path="/shop" element={<Page title="Shop" />} />
-      </Routes>
-      <Footer />
+      <Layout />
     </BrowserRouter>
   );
 }

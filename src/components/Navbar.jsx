@@ -69,7 +69,7 @@ export default function Navbar() {
         fontFamily: "Philosopher, sans-serif",
 
         textTransform: "capitalize",
-        backgroundImage: "url('/images/navbar-bg.png')",
+        backgroundImage: "url('/images/navbar-bg.webp')",
         backgroundSize: "100% 100%",
       }}
       role="banner"
@@ -112,7 +112,7 @@ export default function Navbar() {
             aria-label="Home"
           >
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Logo"
               className="h-10 sm:h-12 w-auto"
             />
@@ -142,7 +142,7 @@ export default function Navbar() {
             className="sm:hidden flex items-center gap-3 min-w-0 mr-50"
             aria-label="Home"
           >
-            <img src="/images/logo.png" alt="Logo" className="h-10 w-auto" />
+            <img src="/images/logo.webp" alt="Logo" className="h-10 w-auto" />
             <span className="flex flex-col leading-tight">
               <span className="font-title text-[22px] font-bold text-neutral-900">
                 Khat Khazana

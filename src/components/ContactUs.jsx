@@ -3,10 +3,11 @@ import React from "react";
 export default function ContactUs() {
   return (
     <main
-      className="min-h-screen"
+      className="min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
         fontFamily: "Philosopher, sans-serif",
         textTransform: "capitalize",
+        backgroundImage: "url('/images/bg.webp')", // 👈 apni background image ka path yahan do
       }}
     >
       <section className="max-w-[1180px] mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-16">
@@ -19,7 +20,7 @@ export default function ContactUs() {
         <div
           className="
             relative rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.18)]
-            bg-transparent backdrop-blur-[1px]
+            bg-white/30 backdrop-blur-[3px]
             p-4 sm:p-6 md:p-8
           "
         >
@@ -32,11 +33,11 @@ export default function ContactUs() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-x-0 -top-17 bottom-[-24px] bg-center bg-no-repeat"
                 style={{
-                  backgroundImage: "url('/images/Union.png')",
+                  backgroundImage: "url('/images/Union.webp')",
                   backgroundSize: "contain",
                 }}
               />
-              {/* parchment content (transparent so page bg shows around the image) */}
+              {/* parchment content */}
               <div className="relative sm:p-6">
                 <h2 className="text-[22px] font-semibold text-neutral-900 mb-3">
                   How to Contact Us
@@ -103,8 +104,9 @@ export default function ContactUs() {
                     </div>
                   </div>
 
-                  {/* Socials (placeholders) */}
+                  {/* Socials */}
                   <div className="pt-3 flex items-center gap-3 text-neutral-900/90">
+                    {/* LinkedIn */}
                     <a
                       href="#"
                       aria-label="LinkedIn"
@@ -117,6 +119,7 @@ export default function ContactUs() {
                         />
                       </svg>
                     </a>
+                    {/* Twitter */}
                     <a
                       href="#"
                       aria-label="Twitter"
@@ -129,6 +132,7 @@ export default function ContactUs() {
                         />
                       </svg>
                     </a>
+                    {/* YouTube */}
                     <a
                       href="#"
                       aria-label="YouTube"
@@ -146,7 +150,7 @@ export default function ContactUs() {
               </div>
             </div>
 
-            {/* RIGHT: Transparent form (shares page background) */}
+            {/* RIGHT: Transparent form */}
             <form
               onSubmit={(e) => e.preventDefault()}
               className="bg-transparent"
@@ -224,7 +228,7 @@ export default function ContactUs() {
   );
 }
 
-/** Reusable input field (transparent, black text) */
+/** Reusable input field */
 function Field({ label, required, type = "text" }) {
   return (
     <div>

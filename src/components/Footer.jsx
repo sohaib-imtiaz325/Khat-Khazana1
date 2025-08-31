@@ -11,7 +11,7 @@ export default function Footer() {
     <footer
       className="relative text-black bg-center overflow-x-hidden"
       style={{
-        backgroundImage: "url('/images/footer-bg.png')", // put your file in /public/images/
+        backgroundImage: "url('/images/footer-bg.webp')", // put your file in /public/images/
         backgroundRepeat: "repeat", // tile the parchment
         backgroundSize: "auto", // no zoom; use the image's native size
         backgroundPosition: "center top",
@@ -26,7 +26,7 @@ export default function Footer() {
           {/* Top: Logo + Brand */}
           <div className="flex items-center justify-center gap-4 sm:gap-5 mb-10 sm:mb-12">
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Khat Khazana"
               className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
             />

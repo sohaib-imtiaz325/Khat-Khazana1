@@ -3,19 +3,19 @@ import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const cards = [
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (1).png", title: "Letter 1", desc: "This is Urdu historic letter 1" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (2).png", title: "Letter 2", desc: "This is Urdu historic letter 2" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (3).png", title: "Letter 3", desc: "This is Urdu historic letter 3" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (4).png", title: "Letter 4", desc: "This is Urdu historic letter 4" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (5).png", title: "Letter 5", desc: "This is Urdu historic letter 5" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (6).png", title: "Letter 6", desc: "This is Urdu historic letter 6" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (1).webp", title: "Letter 1", desc: "This is Urdu historic letter 1" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (2).webp", title: "Letter 2", desc: "This is Urdu historic letter 2" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (3).webp", title: "Letter 3", desc: "This is Urdu historic letter 3" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (4).webp", title: "Letter 4", desc: "This is Urdu historic letter 4" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (5).webp", title: "Letter 5", desc: "This is Urdu historic letter 5" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (6).webp", title: "Letter 6", desc: "This is Urdu historic letter 6" },
 ];
 
 function Urduletter() {
   return (
     <div
       className="min-h-screen bg-cover bg-center flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundImage: "url('/remove background (2) 1.png')" }}
+      style={{ backgroundImage: "url('/images/bg.webp')" }}
     >
       {/* Heading */}
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center">
