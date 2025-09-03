@@ -6,30 +6,34 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="w-full min-h-screen relative bg-black overflow-y-auto">
+      
       {/* 🔹 Video Section */}
-      <div className="w-full h-48 sm:h-56 md:h-[389.61px]">
-        <video
-          className="w-full h-full object-cover"
-          src="https://cdn.pixabay.com/video/2022/02/09/107243-678130082_large.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-      </div>
+      <video
+        className="w-full h-[400px] md:h-[400px] object-cover"
+        src="https://cdn.pixabay.com/video/2022/02/09/107243-678130082_large.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
 
-      {/* 🔹 Poster Section */}
-      <div className="w-full -mt-12 sm:-mt-16 md:-mt-28 flex justify-center items-start">
+      {/* 🔹 Poster Section overlapping */}
+      <div className="flex justify-center">
         <img
           src={poster}
           alt="Poster"
           onClick={() => navigate("/about")}
-          className="w-full max-w-[1440px] object-cover cursor-pointer hover:opacity-90 transition"
+          style={{
+            width: "1440px",
+            height: "810px",
+            marginTop: "-100px", // adjust overlap
+          }}
+          className="object-cover cursor-pointer z-10"
         />
       </div>
+      
     </div>
   );
-};
-
+}; 
 export default Homepage;
