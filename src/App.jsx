@@ -57,7 +57,8 @@ const Layout = () => {
         <Route path="/shop" element={<Page title="Shop" />} />
       </Routes>
 
-      <Footer />
+      {/* ✅ Footer sirf homepage pe hide hoga */}
+      {location.pathname !== "/" && <Footer />}
     </>
   );
 };

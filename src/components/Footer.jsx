@@ -11,20 +11,19 @@ export default function Footer() {
     <footer
       className="relative text-black bg-center overflow-x-hidden"
       style={{
-        backgroundImage: "url('/images/footer-bg.webp')", // put your file in /public/images/
-        backgroundRepeat: "repeat", // tile the parchment
-        backgroundSize: "auto", // no zoom; use the image's native size
+        backgroundImage: "url('/images/footer-bg.webp')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
         backgroundPosition: "center top",
         fontFamily: "Philosopher, sans-serif",
-
         textTransform: "capitalize",
       }}
     >
-      {/* lighter overlay so texture remains visible */}
-      <div className="bg-white/20">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 py-10 sm:py-12">
+      {/* remove white overlay, make transparent */}
+      <div className="bg-transparent">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 pb-10 sm:pb-12">
           {/* Top: Logo + Brand */}
-          <div className="flex items-center justify-center gap-4 sm:gap-5 mb-10 sm:mb-12">
+          <div className="flex items-center justify-center gap-4 sm:gap-5 mb-8 sm:mb-10">
             <img
               src="/images/logo.webp"
               alt="Khat Khazana"
@@ -125,7 +124,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom */}
-          <div className="text-center mt-10">
+          <div className="text-center mt-6">
             <p
               className="text-[16px]"
               style={{ fontFamily: "'Ephesis', cursive" }}

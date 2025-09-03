@@ -3,12 +3,15 @@ import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const cards = [
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (1).webp", title: "Letter 1", desc: "This is Urdu historic letter 1" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (2).webp", title: "Letter 2", desc: "This is Urdu historic letter 2" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (3).webp", title: "Letter 3", desc: "This is Urdu historic letter 3" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (4).webp", title: "Letter 4", desc: "This is Urdu historic letter 4" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (5).webp", title: "Letter 5", desc: "This is Urdu historic letter 5" },
-  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (6).webp", title: "Letter 6", desc: "This is Urdu historic letter 6" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (1).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (2).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (3).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (4).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (5).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552 (6).webp" },
+  { img: "/images/Card.webp", overlay: "/images/Group 1000005552.webp" },
+  { img: "/images/Card.webp", overlay: "/images/image 5 (1).webp" },
+  { img: "/images/Card.webp", overlay: "/images/image 5.webp" },
 ];
 
 function Urduletter() {
@@ -32,12 +35,12 @@ function Urduletter() {
             <button className="text-lg font-semibold text-[#704214] hover:text-black mb-2">
               By {filter}
             </button>
-            <div className="flex items-center w-full border-2 border-[#704214] rounded-full px-4 py-2 bg-white/70">
+            <div className="flex items-center w-full border-2 border-[#704214] rounded-full px-4 py-2 bg-transparent backdrop-blur-sm">
               <FiSearch className="text-[#704214] mr-2" size={20} />
               <input
                 type="text"
                 placeholder={`Search ${filter.toLowerCase()}...`}
-                className="w-full outline-none bg-transparent placeholder:text-[#704214]"
+                className="w-full outline-none bg-transparent placeholder:text-[#704214] text-sm"
               />
             </div>
           </div>
@@ -50,36 +53,127 @@ function Urduletter() {
       {/* Historic Letters Cards Section */}
       <div className="mt-12 w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {cards.map((card, i) => (
-          <Link to={`/letters/urdu/${i}`} key={i}>
+          <Link to={`/letters/english/${i}`} key={i}>
             <div
-              className="relative w-full rounded-xl overflow-hidden shadow-lg bg-center bg-cover bg-no-repeat aspect-[4/3] flex flex-col cursor-pointer"
-              style={{
-                backgroundImage: `url(${card.img})`,
-              }}
+              className="relative cursor-pointer rounded-[20px] mx-auto overflow-hidden"
+              style={{ width: "364px", height: "416.34px" }}
             >
+              {/* Card Background Image */}
+              <img
+                src={card.img}
+                alt="Card Background"
+                className="absolute inset-0 w-full h-full object-cover rounded-[20px]"
+              />
+
               {/* Overlay Image */}
-              <div className="flex justify-center mt-4 sm:mt-6 z-10 relative">
+              <div className="flex justify-center z-10 pt-[30px] relative">
                 <img
                   src={card.overlay}
                   alt="Overlay"
-                  className="w-32 sm:w-36 lg:w-40 h-32 sm:h-36 lg:h-40 object-contain drop-shadow-lg"
+                  className="object-contain drop-shadow-lg"
+                  style={{
+                    width: "324px",
+                    height: "252.34px",
+                  }}
                 />
               </div>
 
               {/* Bottom Text */}
-              <div className="mt-auto py-2 sm:py-3 px-3 sm:px-4 bg-white/70 rounded-t-lg">
+              <div
+                className="absolute text-center"
+                style={{
+                  width: "290px",
+                  height: "27px",
+                  top: "302.34px",
+                  left: "23px",
+                }}
+              >
                 <h2 className="text-sm sm:text-base lg:text-lg font-semibold text-black mb-1 drop-shadow">
-                  {card.title}
+                  Want more historic letters?
                 </h2>
                 <p className="text-xs sm:text-sm lg:text-sm italic text-gray-700 drop-shadow">
-                  {card.desc}
+                  Join our archive mailing list and never miss an update.
                 </p>
               </div>
             </div>
           </Link>
         ))}
       </div>
+
+      {/* Load More Simple Link */}
+      <Link
+        to="/more-letters"
+        className="mt-8 sm:mt-10 text-[#704214] font-semibold underline hover:text-black transition"
+      >
+        Load More
+      </Link>
+
+      {/* Mailing List Section */}
+      <div className="mt-12 flex flex-col items-center gap-4 w-full max-w-md sm:max-w-lg px-4 sm:px-0">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black font-philosopher text-center">
+          Want more historic letters?
+        </h2>
+        <p className="leading-relaxed font-ephesis text-gray-900 text-center text-sm sm:text-base">
+          Join our archive mailing list and never miss an update.
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-4 w-full">
+          <input
+            type="email"
+            placeholder="Your email address"
+            className="px-4 py-3 w-full sm:w-64 rounded-md text-stone-900 placeholder-stone-700 border border-black font-philosopher"
+            style={{
+              backgroundImage: "url('/images/Email bg.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+          <ParchmentButton
+            className="w-full sm:w-auto"
+            onClick={() => alert("Subscribed!")}
+          >
+            Shop Now
+          </ParchmentButton>
+        </div>
+      </div>
     </div>
+  );
+}
+
+/** ParchmentButton Component */
+function ParchmentButton({
+  children = "Shop Now",
+  onClick,
+  className = "",
+  disabled = false,
+  type = "button",
+}) {
+  return (
+    <button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      className={[
+        "inline-flex items-center justify-center",
+        "px-6 py-3 min-w-[100px] md:min-w-[120px]",
+        "text-center text-lg md:text-xl font-semibold",
+        "text-stone-900 drop-shadow",
+        "rounded-xl shadow-md",
+        "transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98]",
+        "focus:outline-none focus:ring-2 focus:ring-amber-600/50",
+        "disabled:opacity-60 disabled:cursor-not-allowed",
+        "font-philosopher",
+        className,
+      ].join(" ")}
+      style={{
+        backgroundImage: "url('/images/bg button.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {children}
+    </button>
   );
 }
 

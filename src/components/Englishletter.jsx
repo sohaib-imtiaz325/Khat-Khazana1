@@ -1,5 +1,5 @@
 import React from "react";
-import { FiSearch } from "react-icons/fi"
+import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const cards = [
@@ -35,7 +35,7 @@ function Englishletter() {
             <button className="text-lg font-semibold text-[#704214] hover:text-black mb-2">
               By {filter}
             </button>
-            <div className="flex items-center w-full border-2 border-[#704214] rounded-full px-4 py-2 bg-white/70">
+            <div className="flex items-center w-full border-2 border-[#704214] rounded-full px-4 py-2 bg-transparent backdrop-blur-sm">
               <FiSearch className="text-[#704214] mr-2" size={20} />
               <input
                 type="text"
@@ -55,20 +55,39 @@ function Englishletter() {
         {cards.map((card, i) => (
           <Link to={`/letters/english/${i}`} key={i}>
             <div
-              className="relative w-full rounded-xl overflow-hidden shadow-lg bg-center bg-cover bg-no-repeat aspect-[4/3] flex flex-col cursor-pointer"
-              style={{ backgroundImage: `url(${card.img})` }}
+              className="relative cursor-pointer rounded-[20px] mx-auto overflow-hidden"
+              style={{ width: "364px", height: "416.34px" }}
             >
+              {/* Card Background Image */}
+              <img
+                src={card.img}
+                alt="Card Background"
+                className="absolute inset-0 w-full h-full object-cover rounded-[20px]"
+              />
+
               {/* Overlay Image */}
-              <div className="flex justify-center mt-4 sm:mt-6 z-10 relative">
+              <div className="flex justify-center z-10 pt-[30px] relative">
                 <img
                   src={card.overlay}
                   alt="Overlay"
-                  className="w-32 sm:w-36 lg:w-40 h-32 sm:h-36 lg:h-40 object-contain drop-shadow-lg"
+                  className="object-contain drop-shadow-lg"
+                  style={{
+                    width: "324px",
+                    height: "252.34px",
+                  }}
                 />
               </div>
 
               {/* Bottom Text */}
-              <div className="mt-auto py-2 sm:py-3 px-3 sm:px-4">
+              <div
+                className="absolute text-center"
+                style={{
+                  width: "290px",
+                  height: "27px",
+                  top: "302.34px",
+                  left: "23px",
+                }}
+              >
                 <h2 className="text-sm sm:text-base lg:text-lg font-semibold text-black mb-1 drop-shadow">
                   Want more historic letters?
                 </h2>
@@ -81,13 +100,13 @@ function Englishletter() {
         ))}
       </div>
 
-      {/* Load More Link */}
-      <a
-        href="/more-letters"
-        className="mt-8 sm:mt-10 text-[#704214] font-semibold border border-[#704214] px-4 sm:px-6 py-2 rounded-full hover:bg-[#704214] hover:text-white transition"
+      {/* Load More Simple Link */}
+      <Link
+        to="/more-letters"
+        className="mt-8 sm:mt-10 text-[#704214] font-semibold underline hover:text-black transition"
       >
         Load More
-      </a>
+      </Link>
 
       {/* Mailing List Section */}
       <div className="mt-12 flex flex-col items-center gap-4 w-full max-w-md sm:max-w-lg px-4 sm:px-0">

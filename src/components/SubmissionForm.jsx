@@ -105,6 +105,31 @@ const CheckboxField = ({ label, name, checked, onChange }) => (
     </label>
   </div>
 );
+const NewsletterSection = () => {
+  return (
+    <section className="text-center py-16 px-4">
+      <h2 className="text-5xl font-['philosopher',_cursive]  text-black">Want more historic letters?</h2>
+      <p className="mt-2 mb-8 text-xl font-['Ephesis',cursive]  text-black max-w-2xl mx-auto">
+        Join our archive mailing list and never miss an update.
+      </p>
+      <form className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
+        <input 
+          type="email"
+          placeholder="Your email address.."
+          className="bg-[#F5EFE1]/60 rounded-lg border-[#85654c] placeholder:text-[#4A3F35] placeholder:opacity-80 w-full sm:w-80 h-12 px-6  focus:outline-none focus:ring-2 focus:ring-[#A17A5D]"
+        style={{ backgroundImage: `url('/images/bg button.webp')`,backgroundSize:'102% 107%' }}
+          
+        />
+        <button type="submit" className="rounded transition-all duration-200 ease-in-out hover:-translate-y-px  px-8 py-3 "
+        style={{ backgroundImage: `url('/images/bg button.webp')`,backgroundSize:'100% 103%' }}>
+        
+          Shop Now
+        </button>
+      </form>
+    </section>
+  );
+}
+
 
 const StaticAudioPlayer = () => (
   <div className="bg-white rounded-full p-2 flex items-center shadow-md w-full max-w-xs">
@@ -178,10 +203,10 @@ const SubmissionForm = () => {
 
   return (
     <div
-      className="min-h-screen w-full bg-[#EFE8D8] bg-cover bg-fixed font-['Philosopher',_serif] text-[#4A2C2A]"
+      className="min-h-screen w-full bg-cover  bg-fixed font-['Philosopher',_serif,'Ephesis'] max-w-[640px]:bg-inherit  text-[#4A2C2A] bg-section"
       style={{
         backgroundImage: "url('/images/bg.webp')",
-        backgroundPosition: "100% 10%",
+        backgroundPosition:'100% 10%'
       }}
     >
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -194,7 +219,7 @@ const SubmissionForm = () => {
               onClick={() => setActiveTab("terms")}
               className={`text-black text-lg font-semibold      p-3 px-4  bg-cover rounded-full `}
               style={{
-                backgroundImage: "url('/src/assets/button-bg.png')",
+                backgroundImage: "url('/images/bg button.webp')",
                 backgroundPosition: "100% 100%",
               }}
             >
@@ -204,7 +229,7 @@ const SubmissionForm = () => {
               onClick={() => setActiveTab("guidelines")}
               className={`text-black text-lg font-semibold bg-cover rounded-full transition-colors p-3 px-4 `}
               style={{
-                backgroundImage: "url('/src/assets/button-bg.png')",
+                backgroundImage: "url('/images/bg button.webp')",
                 backgroundPosition: "100% 100%",
               }}
             >
@@ -215,7 +240,7 @@ const SubmissionForm = () => {
 
         <section
           className="my-12 max-w-5xl mx-auto p-8 bg-no-repeat bg-cover "
-          style={{ backgroundImage: "url('/src/assets/button-bg.png')" }}
+          style={{ backgroundImage: "url('/images/bg button.webp')" }}
         >
           {activeTab === "terms" && (
             <div className="max-w-3xl mx-auto text-center">
@@ -504,7 +529,9 @@ const SubmissionForm = () => {
 
         
       </main>
+      <NewsletterSection />
     </div>
+    
   );
 };
 

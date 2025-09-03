@@ -3,9 +3,11 @@ import { NavLink } from "react-router-dom";
 import ReactCountryFlag from "react-country-flag";
 import { createPortal } from "react-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+
 const linkBase =
   "text-neutral-800 text-[13px] sm:text-[14px] tracking-[0.2px] hover:underline underline-offset-4 whitespace-nowrap";
 const linkActive = "font-semibold underline";
+
 const ROUTES = [
   { to: "/about", label: "About Us", end: true },
   { to: "/letters", label: "Letters" },
@@ -30,7 +32,7 @@ export default function Navbar() {
   const [lang, setLang] = useState(LANGS[0]);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Flag dropdown via portal (never hidden by page content)
+  // Flag dropdown
   const [flagOpen, setFlagOpen] = useState(false);
   const flagBtnRef = useRef(null);
   const [flagPos, setFlagPos] = useState({ top: 0, left: 0 });
@@ -67,17 +69,15 @@ export default function Navbar() {
       className="sticky top-0 z-[999] bg-no-repeat bg-top overflow-visible"
       style={{
         fontFamily: "Philosopher, sans-serif",
-
         textTransform: "capitalize",
         backgroundImage: "url('/images/navbar-bg.webp')",
         backgroundSize: "100% 100%",
       }}
       role="banner"
     >
-      {/* Desktop: [1fr | auto | 1fr] => brand left, nav perfectly centered, controls right
-          Mobile: 3 equal columns => hamburger left, brand center, controls right */}
+      {/* Main container */}
       <div className="max-w-[1240px] mx-auto w-full px-3 sm:px-4 py-3 grid items-center gap-x-3 grid-cols-3 sm:grid-cols-[1fr_auto_1fr]">
-        {/* LEFT COLUMN */}
+        {/* LEFT */}
         <div className="flex items-center min-w-0">
           {/* Hamburger (mobile) */}
           <button
@@ -116,12 +116,12 @@ export default function Navbar() {
               alt="Logo"
               className="h-10 sm:h-12 w-auto"
             />
-            <span className="flex flex-col min-w-0 leading-tight">
-              <span className="font-title text-[22px] sm:text-[26px] md:text-[22px] font-bold text-neutral-900">
+            <span className="min-w-0 leading-tight">
+              <span className="block font-title text-[20px] sm:text-[26px] md:text-[22px] font-bold text-neutral-900">
                 Khat Khazana
               </span>
               <span
-                className="text-neutral-900"
+                className="block text-neutral-900"
                 style={{
                   fontFamily: "'Ephesis', cursive",
                   fontSize: 18,
@@ -134,7 +134,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* CENTER COLUMN */}
+        {/* CENTER */}
         <div className="justify-self-center">
           {/* Brand (mobile center) */}
           <a
@@ -160,7 +160,7 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Desktop nav (centered) */}
+          {/* Desktop nav */}
           <nav
             className="hidden sm:flex items-center justify-center gap-x-3 sm:gap-x-5 md:gap-x-6"
             aria-label="Main"
@@ -173,7 +173,7 @@ export default function Navbar() {
           </nav>
         </div>
 
-        {/* RIGHT COLUMN */}
+        {/* RIGHT */}
         <div className="justify-self-end flex items-center gap-2 sm:gap-3">
           {/* Country dropdown trigger */}
           <button
@@ -194,16 +194,13 @@ export default function Navbar() {
             <div>
               <MdOutlineKeyboardArrowDown />
             </div>
-            <svg viewBox="0 0 20 20" className="w-3.5 h-3.5">
-              <path fill="currentColor" d="M5.5 7l4.5 6 4.5-6z" />
-            </svg>
           </button>
 
           {/* Search */}
           <form
             role="search"
             onSubmit={(e) => e.preventDefault()}
-            className="flex items-center h-[28px] pl-2 pr-2 rounded-full border bg-white/70"
+            className="flex items-center h-[28px] pl-2 pr-2 rounded-full border bg-transparent"
           >
             <svg
               viewBox="0 0 24 24"
@@ -225,7 +222,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile slide-down menu */}
+      {/* Mobile menu */}
       <div
         id="mobile-nav"
         className={`sm:hidden mx-auto max-w-[1240px] w-full px-3 sm:px-4 origin-top overflow-hidden transition-all duration-300 ease-out ${
@@ -235,7 +232,7 @@ export default function Navbar() {
         }`}
         aria-hidden={!menuOpen}
       >
-        <div className="mt-2 rounded-lg border border-black/10 bg-white/85 backdrop-blur p-2 shadow-sm">
+        <div className="mt-2 rounded-lg border border-black/10 bg-transparent backdrop-blur p-2 shadow-sm">
           {ROUTES.map((r) => (
             <NavLink
               key={r.to}
@@ -254,7 +251,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Flag dropdown (portal) */}
+      {/* Flag dropdown */}
       {flagOpen &&
         createPortal(
           <ul

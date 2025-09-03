@@ -15,7 +15,6 @@ const LattersDetailpage = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-
   const [date, setDate] = useState("2025-01-08");
 
   const togglePlay = () => {
@@ -69,7 +68,7 @@ const LattersDetailpage = () => {
       >
         <div className="px-6 py-10 max-w-5xl w-full mx-auto text-black">
           {/* Date + Category */}
-          <div className="flex items-center text-sm mb-4">
+          <div className="flex items-center text-sm mb-4 mt-6">
             <div className="inline-flex items-center bg-white text-black px-4 py-1 rounded-full shadow-sm border border-gray-300 space-x-2">
               <button
                 onClick={() => dateInputRef.current.showPicker()}
@@ -91,21 +90,25 @@ const LattersDetailpage = () => {
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl font-bold mb-6">Want More Historic Letters?</h1>
+          <h1 className="w-full max-w-[700px] text-[32px] sm:text-[40px] md:text-[50px] font-bold leading-[130%] tracking-normal capitalize mb-6">
+            Want More Historic Letters?
+          </h1>
         </div>
 
         {/* ✅ Second background wrapper */}
         <div
-          className="bg-cover bg-center px-6 py-10 mt-[20px]"
+          className="mt-5 w-full max-w-[1270px] rounded-[16px] 
+             pt-10 pr-4 pb-10 pl-4 flex flex-col gap-10 
+             bg-cover bg-center mx-auto"
           style={{ backgroundImage: "url('/images/Card.webp')" }}
         >
-          <div className="max-w-5xl w-full mx-auto text-black">
+          <div className="w-full text-black">
             {/* Historic Letter Image */}
-            <div className="bg-gradient-to-b from-yellow-100 to-yellow-200 text-black rounded-lg overflow-hidden shadow-xl mb-6">
+            <div className="mb-6">
               <img
                 src="/images/latterdetailpage img.webp"
                 alt="Historic Letter"
-                className="w-full h-full object-cover"
+                className="object-cover rounded-[20px] mx-auto w-full max-w-[1200px] h-auto max-h-[550px]"
               />
             </div>
 
@@ -143,13 +146,14 @@ const LattersDetailpage = () => {
             {/* Paragraph + Right Cards */}
             <div className="mt-10 flex flex-col md:flex-row items-stretch gap-10">
               <div
-                className="md:w-2/3 w-full text-[22px] md:text-[26px] lg:text-[30px] text-black leading-9 md:leading-10 italic"
+                className="md:w-2/3 w-full text-[18px] sm:text-[20px] md:text-[26px] lg:text-[30px] 
+                   text-black leading-7 sm:leading-8 md:leading-10 italic"
                 style={{ fontFamily: "'Ephesis'" }}
               >
                 Reduced documents processing time by 60% & improved collaboration
                 efficiency. Reduced documents processing time by 60% & improved
-                collaboration efficiency. Reduced documents processing time by 60% & improved
-                collaboration efficiency.
+                collaboration efficiency. Reduced documents processing time by 60% &
+                improved collaboration efficiency.
                 <br />
                 <br />
                 Reduced documents processing time by 60% & improved collaboration
@@ -162,29 +166,40 @@ const LattersDetailpage = () => {
                 collaboration efficiency.
               </div>
 
-              {/* ✅ Thumbnails with smaller size */}
-              <div className="md:w-1/3 w-full flex flex-col justify-between">
-                <div className="rounded-lg shadow-md border border-gray-300 overflow-hidden flex-1">
+              {/* ✅ Thumbnails */}
+              <div className="md:w-1/3 w-full flex flex-col justify-between relative items-center">
+                {/* Heading */}
+                <h2 className="text-lg sm:text-xl font-bold mb-4 text-center">
+                  Related Thumbnails
+                </h2>
+
+                {/* Vertical Line → always visible */}
+                <div className="absolute top-[70px] left-[10px] sm:left-[20px] w-px h-[400px] border-l border-black opacity-100"></div>
+
+                {/* Card 1 */}
+                <div className="w-[180px] sm:w-[200px] h-[200px] rounded-lg shadow-md border border-gray-300 overflow-hidden flex flex-col">
                   <img
                     src="/images/thumbnails.webp"
                     alt="Thumbnail 1"
-                    className="w-full h-48 object-cover" // 👈 kam height
+                    className="w-full h-[140px] object-cover"
                   />
                   <p
-                    className="text-[20px] font-semibold text-white italic p-3 text-center bg-black"
+                    className="text-[12px] font-semibold text-white italic px-2 py-1 text-center bg-black flex-1 flex items-center justify-center"
                     style={{ fontFamily: "'Ephesis'" }}
                   >
                     Join our archive mailing list and never miss an update.
                   </p>
                 </div>
-                <div className="rounded-lg shadow-md border border-gray-300 overflow-hidden flex-1 mt-6">
+
+                {/* Card 2 */}
+                <div className="w-[180px] sm:w-[200px] h-[200px] rounded-lg shadow-md border border-gray-300 overflow-hidden mt-6 flex flex-col">
                   <img
                     src="/images/thumbnails.webp"
                     alt="Thumbnail 2"
-                    className="w-full h-48 object-cover" // 👈 kam height
+                    className="w-full h-[140px] object-cover"
                   />
                   <p
-                    className="text-[20px] font-semibold text-white italic p-3 text-center bg-black"
+                    className="text-[12px] font-semibold text-white italic px-2 py-1 text-center bg-black flex-1 flex items-center justify-center"
                     style={{ fontFamily: "'Ephesis'" }}
                   >
                     Join our archive mailing list and never miss an update.
@@ -200,37 +215,37 @@ const LattersDetailpage = () => {
           <h2 className="text-3xl font-bold text-black">Related Letters</h2>
         </div>
 
-        {/* ✅ End Cards Section (Base bg only) */}
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-6">
+        {/* ✅ End Cards Section with fixed layout */}
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-6">
           {cards.map((card, i) => (
             <Link to={`/letters/punjabi/${i}`} key={i}>
               <div
-                className="relative w-full rounded-xl overflow-hidden shadow-lg bg-center bg-cover bg-no-repeat h-[450px] flex flex-col justify-between cursor-pointer"
+                className="relative flex flex-col cursor-pointer shadow-lg bg-center bg-cover bg-no-repeat
+                           w-full max-w-[364px] h-auto rounded-[20px] pt-6 pr-5 pb-6 pl-5 gap-5 mx-auto"
                 style={{ backgroundImage: `url(${card.img})` }}
               >
-                {/* ✅ Top Image */}
-                <div className="flex justify-center items-center flex-1">
+                {/* ✅ Overlay Image */}
+                <div className="flex justify-center items-center">
                   <img
                     src={card.overlay}
                     alt="Overlay"
-                    className="max-w-[90%] max-h-[90%] object-contain"
+                    className="w-full max-w-[324px] h-auto object-contain"
                   />
                 </div>
 
-                {/* ✅ Text with Image */}
-                <div className="p-4 text-center ">
-                  <h3 className="text-2xl font-extrabold text-black mb-2">
+                {/* ✅ Positioned Text */}
+                <div className="absolute text-center left-1/2 -translate-x-1/2 bottom-6 w-[90%]">
+                  <h3 className="text-base sm:text-lg font-extrabold text-black mb-1">
                     What More Historical Letters?
                   </h3>
                   <p
-                    className="text-lg font-medium  italic leading-snug"
+                    className="text-sm font-medium italic leading-snug"
                     style={{ fontFamily: "'Ephesis'" }}
                   >
-                    Join our archive mailing list <br /> and never miss an update.
+                    Join our archive mailing list and never miss an update.
                   </p>
                 </div>
               </div>
-
             </Link>
           ))}
         </div>

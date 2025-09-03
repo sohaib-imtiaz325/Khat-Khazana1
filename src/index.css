@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: "Philosopher", sans-serif;
-  background-image: url("/images/bg.png");
+  background-image: url("/images/bg.webp");
   background-repeat: no-repeat;
   background-size: cover; /* covers full screen */
   background-position: center;
