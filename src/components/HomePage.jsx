@@ -7,24 +7,25 @@ const Homepage = () => {
 
   return (
     <div className="relative w-full overflow-hidden">
-      {/* Video Section */}
-      <div className="w-full h-48 sm:h-56 md:h-[389.61px] z-10">
+      {/* 🔹 Video Section */}
+      <div className="w-full h-48 sm:h-56 md:h-[389.61px]">
         <video
           className="w-full h-full object-cover"
           src="https://cdn.pixabay.com/video/2022/02/09/107243-678130082_large.mp4"
           autoPlay
           loop
           muted
+          playsInline
         />
       </div>
 
-      {/* Poster Section */}
-      <div className="w-full -mt-12 sm:-mt-16 md:-mt-28 flex justify-center items-start z-20">
+      {/* 🔹 Poster Section */}
+      <div className="w-full -mt-12 sm:-mt-16 md:-mt-28 flex justify-center items-start">
         <img
           src={poster}
           alt="Poster"
-          onClick={() => navigate("/about")} // ✅ yahan "/about" rakha hai
-          className="w-full object-cover cursor-pointer hover:opacity-90 transition"
+          onClick={() => navigate("/about")}
+          className="w-full max-w-[1440px] object-cover cursor-pointer hover:opacity-90 transition"
         />
       </div>
     </div>
