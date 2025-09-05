@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // 👈 navigation hook
-import mainBgUrl from "/images/bg.webp";
 import buttonBgUrl from "/images/bg button.webp";
 
 const Latters = () => {
@@ -15,10 +14,7 @@ const Latters = () => {
   };
 
   return (
-    <main
-      className="h-[80vh] w-screen bg-cover bg-[50%_10%] pt-24"
-      style={{ backgroundImage: `url(${mainBgUrl})` }}
-    >
+    <main className="h-[80vh] w-screen pt-24 flex items-center justify-center">
       <div className="w-screen h-[60vh] min-h-[300px] flex items-center justify-center relative overflow-hidden">
         <div className="relative w-full h-full flex items-center justify-center ">
           {/* First state: Only "View letters" button */}
