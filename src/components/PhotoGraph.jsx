@@ -3,15 +3,15 @@ import { FiSearch } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const cards = [
-{ img: "/images/Card.webp", overlay: "/images/image 5-min.webp" },
-  { img: "/images/Card.webp", overlay: "/images/image 5 (1)-min.webp" },
-  { img: "/images/Card.webp", overlay: "/images/image 5 (2).webp" },
-  { img: "/images/Card.webp", overlay: "/images/image 5-min.webp" },
-  { img: "/images/Card.webp", overlay: "/images/image 5 (1)-min.webp" },
-  { img: "/images/Card.webp", overlay: "/images/image 5 (2).webp" },
-  { img: "/images/Card.webp", overlay: "/images/image 5-min.webp" },
-  { img: "/images/Card.webp", overlay: "/images/image 5 (1)-min.webp" },
-  { img: "/images/Card.webp", overlay: "/images/image 5 (2).webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5-min.webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5 (1)-min.webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5 (2).webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5-min.webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5 (1)-min.webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5 (2).webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5-min.webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5 (1)-min.webp" },
+  { img: "/images/csrd.webp", overlay: "/images/image 5 (2).webp" },
 ];
 
 const PhotoGraph = () => {

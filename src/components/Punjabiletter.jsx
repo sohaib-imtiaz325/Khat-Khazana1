@@ -108,43 +108,72 @@ function Punjabiletter() {
       </Link>
 
       {/* Mailing List Section */}
-      <div className="mt-12 flex flex-col items-center gap-4 w-full max-w-md sm:max-w-lg px-4 sm:px-0">
-        <h2 className="text-2xl sm:text-50px lg:text-50px font-bold text-black font-philosopher text-center">
-          Want more historic letters?
-        </h2>
-        <p style={{
-            width: "810px",
-            height: "65px",
-            fontFamily: "Ephesis",
-            fontWeight: 400,
-            fontSize: "50px",
-            lineHeight: "100%",
-            color: "#000000",
-            textAlign: "center",
-            marginBottom: "25px",}}>
-          Join our archive mailing list and never miss an update.
-        </p>
+     <div className="mt-12 flex flex-col items-center gap-4 w-full max-w-[900px] px-4 sm:px-6 lg:px-0 mx-auto">
+  {/* Responsive Heading */}
+  <h2
+    className="text-center font-bold text-black font-philosopher"
+    style={{ lineHeight: "110%" }}
+  >
+    {/* Desktop (50px) */}
+    <span className="hidden lg:inline text-[50px]">
+      Want more historic letters?
+    </span>
+    {/* Tablet (30px) */}
+    <span className="hidden sm:inline lg:hidden text-[30px]">
+      Want more historic letters?
+    </span>
+    {/* Mobile (22px) */}
+    <span className="inline sm:hidden text-[22px]">
+      Want more historic letters?
+    </span>
+  </h2>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-4 w-full">
-          <input
-            type="email"
-            placeholder="Your email address"
-            className="px-4 py-3 w-full sm:w-64 rounded-md text-stone-900 placeholder-stone-700 border border-black font-philosopher"
-            style={{
-              backgroundImage: "url('/images/Email bg.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          />
-          <ParchmentButton
-            className="w-full sm:w-auto"
-            onClick={() => alert("Subscribed!")}
-          >
-            Shop Now
-          </ParchmentButton>
-        </div>
-      </div>
+  {/* Responsive Paragraph */}
+  <p
+    className="text-center"
+    style={{
+      fontFamily: "Ephesis",
+      fontWeight: 400,
+      color: "#000000",
+      marginBottom: "25px",
+    }}
+  >
+    {/* Desktop (50px) */}
+    <span className="hidden lg:inline" style={{ fontSize: "50px", lineHeight: "100%" }}>
+      Join our archive mailing list and never miss an update.
+    </span>
+    {/* Tablet (30px) */}
+    <span className="hidden sm:inline lg:hidden" style={{ fontSize: "30px", lineHeight: "120%" }}>
+      Join our archive mailing list and never miss an update.
+    </span>
+    {/* Mobile (22px) */}
+    <span className="inline sm:hidden" style={{ fontSize: "22px", lineHeight: "120%" }}>
+      Join our archive mailing list and never miss an update.
+    </span>
+  </p>
+
+  {/* Email + Button (unchanged) */}
+  <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-4 w-full">
+    <input
+      type="email"
+      placeholder="Your email address"
+      className="px-4 py-3 w-full sm:w-64 rounded-md text-stone-900 placeholder-stone-700 border border-black font-philosopher"
+      style={{
+        backgroundImage: "url('/images/Email bg.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    />
+    <ParchmentButton
+      className="w-full sm:w-auto"
+      onClick={() => alert("Subscribed!")}
+    >
+      Shop Now
+    </ParchmentButton>
+  </div>
+</div>
+
     </div>
   );
 }

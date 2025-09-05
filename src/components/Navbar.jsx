@@ -5,11 +5,12 @@ import { createPortal } from "react-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const linkBase =
-  "text-neutral-800 text-[13px] sm:text-[14px] tracking-[0.2px] hover:underline underline-offset-4 whitespace-nowrap";
+  "text-neutral-800 text-[13px] lg:text-[14px] tracking-[0.2px] hover:underline underline-offset-4 whitespace-nowrap";
 const linkActive = "font-semibold underline";
 
 export default function Navbar() {
-  const navClass = ({ isActive }) => `${linkBase} ${isActive ? linkActive : ""}`;
+  const navClass = ({ isActive }) =>
+    `${linkBase} ${isActive ? linkActive : ""}`;
 
   const LANGS = [
     { code: "GB", label: "English" },
@@ -34,7 +35,6 @@ export default function Navbar() {
     setFlagOpen((v) => !v);
   };
 
-  // Close dropdown on outside click or Escape
   useEffect(() => {
     if (!flagOpen) return;
     const onClick = (e) => {
@@ -56,23 +56,21 @@ export default function Navbar() {
       className="sticky top-0 z-[999] bg-no-repeat bg-top"
       style={{
         fontFamily: "Philosopher, sans-serif",
-        textTransform: "capitalize",
         backgroundImage: "url('/images/navbar-bg.webp')",
         backgroundSize: "100% 100%",
       }}
-      role="banner"
     >
-      <div className="mx-auto w-fit h-fit px-3 sm:px-4 py-2 flex items-center justify-between gap-x-3">
-        {/* LEFT */}
-        <div className="flex items-center min-w-0">
-          {/* Hamburger (mobile) */}
+      <div className="mx-auto w-full max-w-7xl px-4 lg:px-6 py-2 flex items-center justify-between">
+        {/* LEFT: Mobile Toggle + Logo+Text */}
+        <div className="flex items-center gap-3">
+          {/* Hamburger (mobile/tablet left) */}
           <button
             type="button"
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             onClick={() => setMenuOpen((v) => !v)}
-            className="sm:hidden relative w-9 h-9 flex items-center justify-center rounded-md border border-black/10 text-neutral-900"
+            className=" lg:hidden relative w-8 h-8 flex items-center justify-center rounded-md border border-black/10 text-neutral-900"
           >
             <span
               className={`absolute block h-[2px] w-5 bg-current transition-transform duration-300 ${menuOpen ? "translate-y-0 rotate-45" : "-translate-y-2"
@@ -88,105 +86,101 @@ export default function Navbar() {
             />
           </button>
 
-          {/* Brand (desktop left) */}
+          {/* Logo + Text */}
           <a
             href="/"
-            className="hidden sm:flex items-center justify-start gap-3 min-w-0 w-[203.73px] h-[60.7px]"
+            className="flex items-center mt-[10px] min-w-0"
             aria-label="Home"
           >
             <img
               src="/images/logo.webp"
               alt="Logo"
-              className="h-full w-auto object-contain"
+              className="h-[60px] w-[71px] ml-[10px] mt-[10px] object-contain"
             />
-            <span className="w-[123px] leading-tight">
-              <span className="block font-title text-[18px] sm:text-[22px] font-bold text-neutral-900">
+
+            {/* Text container */}
+            <div className="ml-3 flex flex-col justify-center min-w-0 leading-tight">
+              {/* Desktop single line */}
+              <span className="hidden md:block font-title text-[22px] font-bold text-neutral-900 truncate">
                 Khat Khazana
               </span>
+
+              {/* Mobile two lines */}
+              <div className="flex flex-col md:hidden">
+                <span className="font-title text-[20px] font-bold text-neutral-900 truncate">
+                  Khat
+                </span>
+                <span className="font-title text-[20px] font-bold text-neutral-900 truncate">
+                  Khazana
+                </span>
+              </div>
+
+              {/* Subtext */}
               <span
-                className="block text-neutral-900"
-                style={{
-                  fontFamily: "'Ephesis', cursive",
-                  fontSize: 16,
-                  lineHeight: 1,
-                }}
+                className="text-neutral-900 text-[16px]"
+                style={{ fontFamily: "'Ephesis', cursive", lineHeight: 1 }}
               >
                 Love 1st Letter
               </span>
-            </span>
+            </div>
           </a>
         </div>
 
-        {/* CENTER */}
-        <div className="justify-self-center">
-          {/* Brand (mobile center) */}
-          <a
-            href="/"
-            className="sm:hidden flex items-center justify-start gap-3 min-w-0 w-[203.73px] h-[60.7px]"
-            aria-label="Home"
-          >
-            <img
-              src="/images/logo.webp"
-              alt="Logo"
-              className="h-full w-auto object-contain"
-            />
-            <span className="flex flex-col leading-tight">
-              <span className="font-title text-[20px] font-bold text-neutral-900">
-                Khat Khazana
-              </span>
-              <span
-                className="text-neutral-900"
-                style={{
-                  fontFamily: "'Ephesis', cursive",
-                  fontSize: 16,
-                  lineHeight: 1,
-                }}
-              >
-                Love 1st Letter
-              </span>
-            </span>
-          </a>
 
-          {/* Desktop nav */}
-          <nav className="hidden sm:flex items-center justify-center gap-x-4" aria-label="Main">
-            <NavLink to="/about" className={navClass + " w-[66px] h-[21px] flex items-center justify-center"}>About Us</NavLink>
-            <NavLink to="/letters" className={navClass + " w-[51px] h-[16px] flex items-center justify-center"}>Letters</NavLink>
-            <NavLink to="/photographs" className={navClass + " w-[90px] h-[16px] flex items-center justify-center"}>Photographs</NavLink>
-            <NavLink to="/featured" className={navClass + " w-[220px] h-[16px] flex items-center justify-center"}>Featured letters & Photographs</NavLink>
-            <NavLink to="/contact" className={navClass + " w-[79px] h-[16px] flex items-center justify-center"}>Contact Us</NavLink>
-            <NavLink to="/submission" className={navClass + " w-[82px] h-[16px] flex items-center justify-center"}>Submission</NavLink>
-            <NavLink to="/shop" className={navClass + " w-[36px] h-[16px] flex items-center justify-center"}>Shop</NavLink>
-          </nav>
-        </div>
+        {/* CENTER: Desktop nav */}
+        <nav
+          className="hidden lg:flex items-center justify-center gap-x-6 flex-1"
+          aria-label="Main"
+        >
+          <NavLink to="/about" className={navClass}>
+            About Us
+          </NavLink>
+          <NavLink to="/letters" className={navClass}>
+            Letters
+          </NavLink>
+          <NavLink to="/photographs" className={navClass}>
+            Photographs
+          </NavLink>
+          <NavLink to="/featured" className={navClass}>
+            Featured letters & Photographs
+          </NavLink>
+          <NavLink to="/contact" className={navClass}>
+            Contact Us
+          </NavLink>
+          <NavLink to="/submission" className={navClass}>
+            Submission
+          </NavLink>
+          <NavLink to="/shop" className={navClass}>
+            Shop
+          </NavLink>
+        </nav>
 
-        {/* RIGHT */}
-        <div className="justify-self-end flex items-center gap-2 sm:gap-3">
-          {/* Country dropdown trigger */}
+        {/* RIGHT: Flag + Search */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Flag Dropdown */}
           <button
             ref={flagBtnRef}
             type="button"
             onClick={toggleFlag}
-            className="flex items-center gap-2 rounded-full p-1"
+            className="flex items-center gap-1 rounded-full p-1"
             aria-haspopup="listbox"
             aria-expanded={flagOpen}
             title={lang.label}
           >
-            {/* Flag circle with border */}
             <div className="w-[36.8px] h-[33.33px] rounded-full overflow-hidden ring-1 ring-black/20">
               <ReactCountryFlag
                 countryCode={lang.code}
                 svg
-                className="w-full h-full object-cover rounded-full"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                className="rounded-full"
               />
             </div>
-
-            {/* Arrow circle */}
-            <div className="w-[33px] h-[33px] rounded-full flex items-center justify-center bg-transparent">
-              <MdOutlineKeyboardArrowDown size={18} />
+            <div className="w-[28px] h-[28px] flex items-center justify-center">
+              <MdOutlineKeyboardArrowDown size={16} />
             </div>
           </button>
 
-          {/* Search */}
+          {/* Search (always visible now) */}
           <form
             role="search"
             onSubmit={(e) => e.preventDefault()}
@@ -194,7 +188,6 @@ export default function Navbar() {
             style={{
               width: "135.31px",
               height: "39.11px",
-              backgroundColor: "transparent",
               border: "1.5px solid black",
             }}
           >
@@ -217,74 +210,74 @@ export default function Navbar() {
             </svg>
           </form>
         </div>
+      </div>
 
-
-        {/* Mobile menu */}
-        <div
-          id="mobile-nav"
-          className={`sm:hidden mx-auto w-fit h-fit px-3 origin-top overflow-hidden transition-all duration-300 ease-out ${menuOpen ? "max-h-[360px] opacity-100 scale-y-100" : "max-h-0 opacity-0 scale-y-95"
-            }`}
-          aria-hidden={!menuOpen}
-        >
-          <div className="mt-2 rounded-lg border border-black/10 bg-white p-2 shadow-sm">
-            {[
-              { to: "/about", label: "About Us" },
-              { to: "/letters", label: "Letters" },
-              { to: "/photographs", label: "Photographs" },
-              { to: "/featured", label: "Featured letters & Photographs" },
-              { to: "/contact", label: "Contact Us" },
-              { to: "/submission", label: "Submission" },
-              { to: "/shop", label: "Shop" },
-            ].map((r) => (
-              <NavLink
-                key={r.to}
-                to={r.to}
-                end={r.end}
-                className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md ${linkBase} ${isActive ? linkActive : ""}`
-                }
-                onClick={() => setMenuOpen(false)}
-              >
-                {r.label}
-              </NavLink>
-            ))}
-          </div>
-        </div>
-
-        {/* Flag dropdown */}
-        {flagOpen &&
-          createPortal(
-            <ul
-              className="fixed z-[10000] w-40 rounded-md border border-black/10 bg-white shadow-lg p-1"
-              style={{ top: flagPos.top, left: flagPos.left }}
-              role="listbox"
+      {/* Mobile menu */}
+      <div
+        id="mobile-nav"
+        className={`lg:hidden mx-auto w-fit h-fit px-3 origin-top overflow-hidden transition-all duration-300 ease-out ${menuOpen
+            ? "max-h-[360px] opacity-100 scale-y-100"
+            : "max-h-0 opacity-0 scale-y-95"
+          }`}
+        aria-hidden={!menuOpen}
+      >
+        <div className="mt-2 rounded-lg border border-black/10 bg-white p-2 shadow-sm">
+          {[
+            { to: "/about", label: "About Us" },
+            { to: "/letters", label: "Letters" },
+            { to: "/photographs", label: "Photographs" },
+            { to: "/featured", label: "Featured letters & Photographs" },
+            { to: "/contact", label: "Contact Us" },
+            { to: "/submission", label: "Submission" },
+            { to: "/shop", label: "Shop" },
+          ].map((r) => (
+            <NavLink
+              key={r.to}
+              to={r.to}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md ${linkBase} ${isActive ? linkActive : ""
+                }`
+              }
+              onClick={() => setMenuOpen(false)}
             >
-              {LANGS.map((opt) => (
-                <li key={opt.code}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setLang(opt);
-                      setFlagOpen(false);
-                    }}
-                    className="flex items-center justify-between w-full h-[39px] px-3 rounded-md border border-black/20 bg-white hover:bg-gray-100"
-                    role="option"
-                    aria-selected={lang.code === opt.code}
-                  >
-                    <ReactCountryFlag
-                      countryCode={opt.code}
-                      svg
-                      className="w-6 h-4 rounded-sm ring-1 ring-black/15"
-                    />
-                    <span className="ml-2 text-sm">{opt.label}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>,
-            document.body
-          )}
-          </div>
-    </header>
+              {r.label}
+            </NavLink>
+          ))}
+        </div>
+      </div>
 
+      {/* Flag dropdown */}
+      {flagOpen &&
+        createPortal(
+          <ul
+            className="fixed z-[10000] w-40 rounded-md border border-black/10 bg-white shadow-lg p-1"
+            style={{ top: flagPos.top, left: flagPos.left }}
+            role="listbox"
+          >
+            {LANGS.map((opt) => (
+              <li key={opt.code}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLang(opt);
+                    setFlagOpen(false);
+                  }}
+                  className="flex items-center justify-between w-full h-[39px] px-3 rounded-md border border-black/20 bg-white hover:bg-gray-100"
+                  role="option"
+                  aria-selected={lang.code === opt.code}
+                >
+                  <ReactCountryFlag
+                    countryCode={opt.code}
+                    svg
+                    className="w-6 h-4 rounded-sm ring-1 ring-black/15"
+                  />
+                  <span className="ml-2 text-sm">{opt.label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>,
+          document.body
+        )}
+    </header>
   );
 }
