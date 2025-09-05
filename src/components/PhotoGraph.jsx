@@ -1,8 +1,9 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const cards = [
-  { img: "/images/Card.webp", overlay: "/images/image 5-min.webp" },
+{ img: "/images/Card.webp", overlay: "/images/image 5-min.webp" },
   { img: "/images/Card.webp", overlay: "/images/image 5 (1)-min.webp" },
   { img: "/images/Card.webp", overlay: "/images/image 5 (2).webp" },
   { img: "/images/Card.webp", overlay: "/images/image 5-min.webp" },
@@ -14,18 +15,38 @@ const cards = [
 ];
 
 const PhotoGraph = () => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="min-h-screen bg-cover bg-center flex flex-col items-center py-12 px-4"
-      style={{ backgroundImage: "url('/images/bg.webp')" }}
+      
     >
-      <h1 className="text-4xl font-bold text-gray-900">Photographs</h1>
-      <p className="text-lg italic text-gray-600 mt-2 text-center">
-        Get the latest items immediately with promo prices
+      {/* Heading */}
+      <h1
+        className="text-center font-philosopher font-bold"
+        style={{
+          width: "280px",
+          height: "65px",
+          fontSize: "50px",
+          lineHeight: "130%",
+          color: "#23262F",
+          textTransform: "capitalize",
+          marginBottom: "10px",
+        }}
+      >
+        Photographs
+      </h1>
+
+      <p
+        className="text-lg italic text-gray-600 text-center"
+        style={{ marginBottom: "40px" }}
+      >
+        
       </p>
 
       {/* Filters */}
-      <div className="w-full max-w-5xl mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {["Category", "Owner's Name", "Decade"].map((filter) => (
           <div key={filter} className="flex flex-col items-center">
             <button className="text-lg font-semibold text-[#704214] hover:text-black">
@@ -43,44 +64,104 @@ const PhotoGraph = () => {
         ))}
       </div>
 
-      <div className="w-full max-w-5xl border-b border-[#704214] mt-8"></div>
-
-      {/* Cards */}
-      <div className="mt-12 w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {cards.map((card, i) => (
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {cards.map((card) => (
           <div
-            key={i}
-            className="relative text-center h-[30rem] flex flex-col items-center rounded-xl overflow-hidden shadow-lg"
+            key={card.id}
+            onClick={() => navigate(`/photo/${card.id}`)}
+            className="relative text-center overflow-hidden shadow-lg cursor-pointer"
             style={{
+              width: "370px",
+              height: "464px",
+              borderRadius: "20px",
+              padding: "30px 10px",
               backgroundImage: `url('/images/dev background.png-min.webp')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
             {/* Frame */}
-            <div className="absolute top-6 flex items-center justify-center z-10 w-full h-[65%]">
+            <div
+              className="absolute z-10"
+              style={{
+                top: "30px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "205.63px",
+                height: "300px",
+              }}
+            >
               <img
                 src="/images/frame-min.webp"
                 alt="Frame"
-                className="w-3/5 h-full object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
 
             {/* Overlay Image */}
-            <div className="absolute top-6 flex items-center justify-center z-20 w-full h-[65%]">
+            <div
+              className="absolute z-20"
+              style={{
+                top: "61.35px",
+                left: "113px",
+                width: "143px",
+                height: "238px",
+              }}
+            >
               <img
                 src={card.overlay}
                 alt="Overlay"
-                className="w-2/5 h-full object-contain"
+                className="w-full h-full object-contain"
               />
             </div>
 
-            {/* Bottom text */}
-            <div className="absolute bottom-10 w-full px-4 z-30">
-              <h2 className="text-lg font-semibold text-black mb-2">
-                Want more photographs?
+            {/* Bottom Heading */}
+            <div
+              className="absolute z-30 text-left"
+              style={{
+                top: "350px",
+                left: "23px",
+                width: "290px",
+                height: "27px",
+              }}
+            >
+              <h2
+                className="font-philosopher"
+                style={{
+                  fontFamily: "Philosopher",
+                  fontWeight: 700,
+                  fontSize: "24px",
+                  color: "#000000",
+                  margin: 0,
+                }}
+              >
+                Want more historic letters?
               </h2>
-              <p className="text-sm italic text-black">
+            </div>
+
+            {/* Bottom Subtext */}
+            <div
+              className="absolute z-30 text-left"
+              style={{
+                top: "382px",
+                left: "23px",
+                width: "324px",
+                height: "52px",
+              }}
+            >
+              <p
+                className="font-ephesis"
+                style={{
+                  fontFamily: "Ephesis",
+                  fontWeight: 400,
+                  fontSize: "20px",
+                  lineHeight: "100%",
+                  color: "#000000",
+                  margin: 0,
+                }}
+              >
+                Join our archive mailing list and never miss an update.
                 Join our archive mailing list and never miss an update.
               </p>
             </div>
@@ -88,71 +169,126 @@ const PhotoGraph = () => {
         ))}
       </div>
 
-      {/* Load More & Mailing List */}
-      <div className="mt-12 flex flex-col items-center gap-6 w-full max-w-md text-center">
-        <ParchmentButton onClick={() => alert("Load More clicked!")}>
+      {/* Load More Button */}
+      <div className="flex justify-center mb-12">
+        <button
+          style={{
+            display: "inline",
+            fontFamily: "Philosopher",
+            fontWeight: 700,
+            fontSize: "26px",
+            lineHeight: "130%",
+            textTransform: "capitalize",
+            textDecoration: "underline",
+            textDecorationStyle: "solid",
+            textDecorationSkipInk: "auto",
+            color: "#6E4A27",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            opacity: 1,
+          }}
+        >
           Load More
-        </ParchmentButton>
+        </button>
+      </div>
 
-        <h2 className="text-3xl font-bold text-black font-philosopher mt-4">
+      {/* Subscribe Section */}
+      <div
+        style={{
+          width: "1440px",
+          height: "300px",
+          margin: "0 auto",
+          background: "none", // transparent / page default
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          opacity: 1,
+        }}
+      >
+        {/* Heading */}
+        <h2
+          style={{
+            width: "603px",
+            height: "56px",
+            fontFamily: "Philosopher",
+            fontWeight: 700,
+            fontSize: "50px",
+            lineHeight: "100%",
+            color: "#000000",
+            textAlign: "center",
+            marginBottom: "10px",
+          }}
+        >
           Want more historic letters?
         </h2>
 
-        <p className="leading-relaxed font-ephesis text-gray-900">
+        {/* Subtext */}
+        <p
+          style={{
+            width: "810px",
+            height: "65px",
+            fontFamily: "Ephesis",
+            fontWeight: 400,
+            fontSize: "50px",
+            lineHeight: "100%",
+            color: "#000000",
+            textAlign: "center",
+            marginBottom: "25px",
+          }}
+        >
           Join our archive mailing list and never miss an update.
+          
         </p>
 
-        <div className="flex justify-center items-center gap-4 mt-4 w-full">
+        {/* Email + Button with background image */}
+        <div style={{ display: "flex", gap: "16px" }}>
           <input
             type="email"
             placeholder="Your email address"
-            className="px-4 py-2 w-64 md:w-80 rounded-md text-stone-900 placeholder-stone-700 border border-black font-philosopher text-base md:text-lg bg-cover bg-center"
-            style={{ backgroundImage: "url('/images/Email bg.webp')" }}
+            style={{
+              width: "384px",
+              height: "60px",
+              borderRadius: "8px",
+              border: "2px solid #6E4A27",
+              backgroundImage: "url('/images/dev background.png-min.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              color: "#000000",
+              padding: "0 12px",
+              fontFamily: "Philosopher",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "100%",
+              opacity: 0.9,
+            }}
           />
-          <ParchmentButton onClick={() => alert("Subscribed!")}>
+          <button
+            style={{
+              width: "144px",
+              height: "60px",
+              borderRadius: "16px",
+              padding: "20px",
+              backgroundImage: "url('/images/dev background.png-min.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            
+              color: "#000000",
+              fontFamily: "Philosopher",
+              fontWeight: 400,
+              fontSize: "24px",
+              lineHeight: "100%",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
+          >
             Shop Now
-          </ParchmentButton>
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
-// Reusable Button
-function ParchmentButton({
-  children = "Shop Now",
-  onClick,
-  className = "",
-  disabled = false,
-  type = "button",
-}) {
-  return (
-    <button
-      type={type}
-      disabled={disabled}
-      onClick={onClick}
-      className={[
-        "inline-flex items-center justify-center",
-        "px-3 py-1",
-        "min-w-[60px]",
-        "text-center",
-        "text-sm font-medium",
-        "text-stone-900 drop-shadow",
-        "bg-center bg-no-repeat bg-cover",
-        "rounded-md border border-black",
-        "transition-transform duration-200 ease-out",
-        "hover:scale-[1.02]",
-        "active:scale-[0.98]",
-        "focus:outline-none focus:ring-2 focus:ring-amber-600/50",
-        "disabled:opacity-60 disabled:cursor-not-allowed",
-        "font-philosopher",
-        className,
-      ].join(" ")}
-      style={{ backgroundImage: "url('/images/Email bg.webp')" }}
-    >
-      {children}
-    </button>
-  );
-}
 
 export default PhotoGraph;

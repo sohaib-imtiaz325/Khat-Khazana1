@@ -1,5 +1,4 @@
 import React from "react";
-import background from "/images/bg.webp";
 import csrd from "/images/csrd.webp";
 import img1 from "/images/img1.webp";
 import img2 from "/images/img2.webp";

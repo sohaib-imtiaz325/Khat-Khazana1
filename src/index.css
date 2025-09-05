@@ -5,7 +5,7 @@ body {
   font-family: "Philosopher", sans-serif;
   background-image: url("/images/bg.webp");
   background-repeat: no-repeat;
-  background-size: cover; /* covers full screen */
+  background-size: 100% 114%; /* covers full screen */
   background-position: center;
   min-height: 100vh;
 }

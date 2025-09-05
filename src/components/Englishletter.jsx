@@ -18,7 +18,6 @@ function Englishletter() {
   return (
     <div
       className="min-h-screen bg-cover bg-center flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundImage: "url('/images/bg.webp')" }}
     >
       {/* Heading */}
       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center">
@@ -47,8 +46,6 @@ function Englishletter() {
         ))}
       </div>
 
-      {/* Divider Line */}
-      <div className="w-full max-w-5xl border-b border-[#704214] mt-8"></div>
 
       {/* Historic Letters Cards Section */}
       <div className="mt-12 w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -80,7 +77,7 @@ function Englishletter() {
 
               {/* Bottom Text */}
               <div
-                className="absolute text-center"
+                className="absolute text-left"
                 style={{
                   width: "290px",
                   height: "27px",
@@ -88,11 +85,20 @@ function Englishletter() {
                   left: "23px",
                 }}
               >
-                <h2 className="text-sm sm:text-base lg:text-lg font-semibold text-black mb-1 drop-shadow">
+                <h2 className="text-24px sm:text-base lg:text-lg font-semibold text-black mb-1 drop-shadow">
                   Want more historic letters?
                 </h2>
-                <p className="text-xs sm:text-sm lg:text-sm italic text-gray-700 drop-shadow">
+                <p  className="font-ephesis"
+                style={{
+                  fontFamily: "Ephesis",
+                  fontWeight: 400,
+                  fontSize: "20px",
+                  lineHeight: "100%",
+                  color: "#000000",
+                  margin: 0,
+                }}>
                   Join our archive mailing list and never miss an update.
+                   Join our archive mailing list and never miss an update.
                 </p>
               </div>
             </div>
@@ -110,10 +116,19 @@ function Englishletter() {
 
       {/* Mailing List Section */}
       <div className="mt-12 flex flex-col items-center gap-4 w-full max-w-md sm:max-w-lg px-4 sm:px-0">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black font-philosopher text-center">
+        <h2 className="text-2xl sm:text-3xl lg:text-50px font-bold text-black font-philosopher text-center">
           Want more historic letters?
         </h2>
-        <p className="leading-relaxed font-ephesis text-gray-900 text-center text-sm sm:text-base">
+        <p  style={{
+            width: "810px",
+            height: "65px",
+            fontFamily: "Ephesis",
+            fontWeight: 400,
+            fontSize: "50px",
+            lineHeight: "100%",
+            color: "#000000",
+            textAlign: "center",
+            marginBottom: "25px",}}>
           Join our archive mailing list and never miss an update.
         </p>
 

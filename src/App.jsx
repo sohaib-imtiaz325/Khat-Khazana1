@@ -13,6 +13,7 @@ import LattersDetailpage from "./components/LattersDetailpage";
 import PhotoGraph from "./components/PhotoGraph";
 import SubmissionForm from "./components/SubmissionForm";
 import Featurelatter from "./components/Featurelatter";
+import PhotoGraphDetail from "./components/PhotoGraphDetail";
 
 // Simple placeholders – replace with your real pages
 const Page = ({ title }) => (
@@ -48,6 +49,7 @@ const Layout = () => {
         <Route path="/letters/punjabi/:id" element={<LattersDetailpage />} />
 
         <Route path="/photographs" element={<PhotoGraph title="Photographs" />} />
+        <Route path="/PhotoGraphs/:id" element={<PhotoGraphDetail />}/>
         <Route
           path="/featured"
           element={<Featurelatter title="Featured letters & Photographs" />}

@@ -64,7 +64,7 @@ const LattersDetailpage = () => {
       {/* ✅ Base background wrapper */}
       <div
         className="min-h-[300px] bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/bg.webp')" }}
+
       >
         <div className="px-6 py-10 max-w-5xl w-full mx-auto text-black">
           {/* Date + Category */}
@@ -151,19 +151,21 @@ const LattersDetailpage = () => {
                 style={{ fontFamily: "'Ephesis'" }}
               >
                 Reduced documents processing time by 60% & improved collaboration
-                efficiency. Reduced documents processing time by 60% & improved
-                collaboration efficiency. Reduced documents processing time by 60% &
+                efficiency Reduced documents processing time by 60% & improved
+                collaboration efficiency Reduced documents processing time by 60% &
                 improved collaboration efficiency.
-                <br />
-                <br />
+                <br/>
+                <br/>
                 Reduced documents processing time by 60% & improved collaboration
-                efficiency. Reduced documents processing time by 60% & improved
-                collaboration efficiency.
-                <br />
-                <br />
+                efficiency Reduced documents processing time by 60% & improved
+                collaboration efficiency Reduced documents processing time by 60% &
+                improved collaboration efficiency.
+                <br/> 
+                <br/>
                 Reduced documents processing time by 60% & improved collaboration
-                efficiency. Reduced documents processing time by 60% & improved
-                collaboration efficiency.
+                efficiency Reduced documents processing time by 60% & improved
+                collaboration efficiency Reduced documents processing time by 60% &
+                improved collaboration efficiency.
               </div>
 
               {/* ✅ Thumbnails */}
@@ -216,39 +218,61 @@ const LattersDetailpage = () => {
         </div>
 
         {/* ✅ End Cards Section with fixed layout */}
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-6">
-          {cards.map((card, i) => (
-            <Link to={`/letters/punjabi/${i}`} key={i}>
-              <div
-                className="relative flex flex-col cursor-pointer shadow-lg bg-center bg-cover bg-no-repeat
-                           w-full max-w-[364px] h-auto rounded-[20px] pt-6 pr-5 pb-6 pl-5 gap-5 mx-auto"
-                style={{ backgroundImage: `url(${card.img})` }}
-              >
-                {/* ✅ Overlay Image */}
-                <div className="flex justify-center items-center">
-                  <img
-                    src={card.overlay}
-                    alt="Overlay"
-                    className="w-full max-w-[324px] h-auto object-contain"
-                  />
-                </div>
+       <div className="mt-12 w-full flex justify-center">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" style={{ maxWidth: "1270px" }}>
+    {cards.map((card, i) => (
+      <div
+        className="relative cursor-pointer rounded-[20px] mx-auto overflow-hidden"
+        style={{ width: "364px", height: "416.34px" }}
+        key={i}
+      >
+        {/* Card Background Image */}
+        <img
+          src={card.img}
+          alt="Card Background"
+          className="absolute inset-0 w-full h-full object-cover rounded-[20px]"
+        />
 
-                {/* ✅ Positioned Text */}
-                <div className="absolute text-center left-1/2 -translate-x-1/2 bottom-6 w-[90%]">
-                  <h3 className="text-base sm:text-lg font-extrabold text-black mb-1">
-                    What More Historical Letters?
-                  </h3>
-                  <p
-                    className="text-sm font-medium italic leading-snug"
-                    style={{ fontFamily: "'Ephesis'" }}
-                  >
-                    Join our archive mailing list and never miss an update.
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))}
+        {/* Overlay Image */}
+        <div className="flex justify-center z-10 pt-[30px] relative">
+          <img
+            src={card.overlay}
+            alt="Overlay"
+            className="object-contain drop-shadow-lg"
+            style={{
+              width: "324px",
+              height: "252.34px",
+            }}
+          />
         </div>
+
+        {/* Bottom Text */}
+        <div
+          className="absolute text-left"
+          style={{
+            width: "290px",
+            height: "27px",
+            top: "302.34px",
+            left: "23px",
+          }}
+        >
+          <h2
+            className="font-semibold text-black mb-1 drop-shadow text-24px">
+            Want more historic letters?
+          </h2>
+          <p
+            className="font-medium italic leading-snug text-20px"
+            style={{ fontFamily: "'Ephesis'",  }}
+          >
+            Join our archive mailing list and never miss an update. Join our archive mailing list and never miss an update.
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
       </div>
     </>
   );

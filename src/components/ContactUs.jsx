@@ -5,7 +5,6 @@ export default function ContactUs() {
     <main
       className="min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/images/bg.webp')", // 👈 apna image lagao
         fontFamily: "Philosopher, sans-serif",
         textTransform: "capitalize",
       }}
